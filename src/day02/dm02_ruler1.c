@@ -6,9 +6,11 @@
 #include <string.h>
 
 void ruler1() {
+    printf("ruler1");
     char *p1 = NULL;
 //    错误，空指针不能拷贝
-//    strcopy(p1, "abcdef");
+    strcpy(p1, "abcdef");
+    printf("%s",p1);
 }
 
 void ruler2() {
@@ -16,7 +18,7 @@ void ruler2() {
     char *p1 = NULL;
     for (int i = 0; i < 10; i++) {
         p1 = &buf[i];
-        printf("p1 : %d \n", p1);
+        printf("p1 : %d \n", &p1);
     }
 
     printf("打印第二段\n");
@@ -29,6 +31,7 @@ void ruler2() {
 }
 
 int main() {
-//    ruler1();
+    printf("main");
+    ruler1();
     ruler2();
 }
