@@ -10,6 +10,7 @@
  * @param p
  */
 void ruler3(int **p) {
+    //通过形参间接的修改实参的值
     *p = 300;
 }
 
@@ -34,6 +35,7 @@ int main() {
     *p2 = 200;
     printf("p1:%d\n", p1);
 
+    //
     ruler3(&p1);
     printf("p1:%d\n", p1);
 
