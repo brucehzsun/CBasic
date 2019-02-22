@@ -25,10 +25,10 @@ void string1() {
 
 void string2() {
     char buf[] = "abcedfg";
-    char *p = NULL;
+    char *p = buf;
 
     //字符数组的首地址
-    p = buf;
+//    p = buf;
 
     int len = strlen(buf);
     for (int i = 0; i < len; i++) {
