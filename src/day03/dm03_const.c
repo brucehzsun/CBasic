@@ -15,13 +15,32 @@ int constTest() {
 }
 
 int main() {
-    char *p = "abcdefghijklmn";
-    char *sub = malloc(100);
-    strncpy(sub, p + 3, 3);
+    char *buffer = "abcdefghijklmn";
+    int size = strlen(buffer);
+    printf("size:%d\n", size);
 
-    char *newChar = malloc(100);
-    strncpy(newChar, p + 6, 3);
-    strcat(sub, newChar);
+    int subCount = 3;
+    if (size % 3 > 0) {
+        subCount++;
+    }
+    int subSize = size / 3;
+    printf("切成的分段数:%d\n", subCount);
 
-    printf("sub:%s\n", sub);
+    char *newBuffer = (char *) malloc(size);
+    int offset = 0;
+    char *p = buffer;
+    for (int i = 0; i < subCount; i++) {
+        int subLength = 0;
+        if (i == subCount - 1) {
+            subLength = size - i * subSize;
+        } else {
+            subLength = subSize;
+        }
+        printf("每段 %d size：%d\n", i, subLength);
+        char *subData = (char *) malloc(subLength);
+        strncpy(subData, p + offset, subLength);
+        strcat(newBuffer, subData);
+        offset += subLength;
+    }
+    printf("newBuffer:%s\n", newBuffer);
 }
