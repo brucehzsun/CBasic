@@ -82,20 +82,20 @@ int main() {
 //        printf("str count:%d\n", count);
     }
     {
-//        char buf[100];
-//        int ret = strTrim(p, buf);
-//        if (ret != 0) {
-//            return ret;
-//        }
-//        printf("buf:%s||| \n", buf);
-    }
-    {
-        char buf[] = "   abcdeg   ";
-        int ret = strTrim2(buf);
+        char buf[100];
+        int ret = strTrim(p, buf);
         if (ret != 0) {
-            printf("error");
             return ret;
         }
         printf("buf:%s||| \n", buf);
+    }
+    {
+//        char buf[] = "   abcdeg   ";
+//        int ret = strTrim2(buf);
+//        if (ret != 0) {
+//            printf("error");
+//            return ret;
+//        }
+//        printf("buf:%s||| \n", buf);
     }
 }
