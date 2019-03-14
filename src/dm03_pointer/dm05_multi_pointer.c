@@ -6,14 +6,15 @@
 #include <stdio.h>
 #include <string.h>
 
-
-char **createCharArray(int num) {
-    char **p = (char **) malloc(sizeof(char *) * num);
+int createCharArray(char ***p, int num) {
+    char **temp = (char **) malloc(sizeof(char *) * num);
     for (int i = 0; i < num; i++) {
-        p[i] = (char *) malloc(sizeof(char) * 100);
-        sprintf(p[i], "%d%d%d", i + 1, i + 1, i + 1);
+        temp[i] = (char *) malloc(sizeof(char) * 100);
+        sprintf(temp[i], "%d%d%d", i + 1, i + 1, i + 1);
     }
-    return p;
+
+    *p = temp;
+    return 0;
 }
 
 void printArr(char **p, int num) {
@@ -36,19 +37,23 @@ void sort(char **p, int num) {
     }
 }
 
-void freeArr(char **p, int num) {
+void freeArr(char ***p, int num) {
+    char **tem = *p;
     for (int i = 0; i < num; i++) {
-        free(p[i]);
-        p[i] = NULL;
+        free(tem[i]);
+        tem[i] = NULL;
     }
 
-    free(p);
+    free(tem);
+    //避免野指针
+    *p = NULL;
 }
 
 int main() {
 
     int num = 5;
-    char **p = createCharArray(num);
+    char **p = NULL;
+    createCharArray(&p, num);
 
     printf("排序前：\n");
     printArr(p, num);
@@ -59,8 +64,7 @@ int main() {
     printArr(p, num);
 
     printf("释放内存：\n");
-    freeArr(p, num);
-    //p是野指针
+    freeArr(&p, num);
 
     printf("over\n");
 }
