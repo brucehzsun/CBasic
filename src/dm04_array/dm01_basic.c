@@ -35,7 +35,69 @@ void arrayBasic2() {
     printf("数组地址%d, &myArr+1:%d\n", &myArr, &myArr + 1);
 }
 
+/**
+ * 定义数组指针变量的第一种方法
+ */
+void arryPointer1() {
+//    char *pArray = {"111", "222", "333"};
+
+    typedef int(MyArrayType)[5];
+
+    MyArrayType *myArrayType;
+
+    int myArray2[5];
+    myArrayType = &myArray2;
+
+    for (int i = 0; i < 5; i++) {
+        (*myArrayType)[i] = i + 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d", (*myArrayType)[i]);
+    }
+}
+
+/**
+ * 定义数组指针变量的第二种方法
+ */
+void arrayPointer2() {
+    typedef int (*MyArrayType)[5];
+    MyArrayType myArrayType;
+
+    int myArray2[5];
+    myArrayType = &myArray2;
+
+    for (int i = 0; i < 5; i++) {
+        (*myArrayType)[i] = i + 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d", (*myArrayType)[i]);
+    }
+}
+
+/**
+ * 定义数组指针变量的第三种方法
+ */
+void arrayPointer3() {
+    int (*myArrayType)[5];
+
+    int myArray2[5];
+    myArrayType = &myArray2;
+
+    for (int i = 0; i < 5; i++) {
+        (*myArrayType)[i] = i + 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d", (*myArrayType)[i]);
+    }
+}
+
 int main() {
-    arrayBasic();
-    arrayBasic2();
+//    arrayBasic();
+//    arrayBasic2();
+//    arryPointer1();
+//    arrayPointer2();
+    arrayPointer3();
 }
