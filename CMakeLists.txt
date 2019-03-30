@@ -36,4 +36,6 @@ set(CMAKE_C_STANDARD 11)
 #add_executable(struce_04 src/dm05_struct/dm04_pointer.c)
 #add_executable(struce_05 src/dm05_struct/dm05_pointer2.c)
 #add_executable(struce_06 src/dm05_struct/dm06_deep_copy.c)
-add_executable(struce_06 src/dm05_struct/dm07_offset.c)
+#add_executable(struce_06 src/dm05_struct/dm07_offset.c)
+
+add_executable(file01 src/dm06_file/dm01_write_read.c)
