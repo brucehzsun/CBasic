@@ -38,4 +38,6 @@ set(CMAKE_C_STANDARD 11)
 #add_executable(struce_06 src/dm05_struct/dm06_deep_copy.c)
 #add_executable(struce_06 src/dm05_struct/dm07_offset.c)
 
-add_executable(file01 src/dm06_file/dm01_write_read.c)
+#add_executable(file01 src/dm06_file/dm01_write_read.c)
+#add_executable(file02 src/dm06_file/dm02_line.c)
+add_executable(file03 src/dm06_file/dm03_binary.c)
