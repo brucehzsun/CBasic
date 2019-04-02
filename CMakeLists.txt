@@ -40,4 +40,5 @@ set(CMAKE_C_STANDARD 11)
 
 #add_executable(file01 src/dm06_file/dm01_write_read.c)
 #add_executable(file02 src/dm06_file/dm02_line.c)
-add_executable(file03 src/dm06_file/dm03_binary.c)
+#add_executable(file03 src/dm06_file/dm03_binary.c)
+add_executable(file04 src/dm06_file/dm04_config.c src/dm06_file/dm04_config_app.c)
