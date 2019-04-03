@@ -7,7 +7,7 @@
 #include <string.h>
 #include "dm04_config.h"
 
-#define CONFIG_FILE_NAME "../config.txt"
+#define CONFIG_FILE_NAME "../data/config.ini"
 
 void menu() {
     printf("============================\n");
