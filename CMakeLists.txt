@@ -3,6 +3,9 @@ project(CBasic C)
 
 set(CMAKE_C_STANDARD 11)
 
+set(EXECUTABLE_OUTPUT_PATH ${CBasic_SOURCE_DIR}/bin)
+set(LIBRARY_OUTPUT_PATH ${CBasic_SOURCE_DIR}/lib)
+
 #add_executable(day01_dm02 src/day01/dm02_sort.c)c
 #add_executable(day01_dm03 src/day01/dm03_dataType.c)
 #add_executable(day01_dm04 src/day01/dm04_variable.c)
@@ -41,4 +44,10 @@ set(CMAKE_C_STANDARD 11)
 #add_executable(file01 src/dm06_file/dm01_write_read.c)
 #add_executable(file02 src/dm06_file/dm02_line.c)
 #add_executable(file03 src/dm06_file/dm03_binary.c)
-add_executable(file04 src/dm06_file/dm04_config.c src/dm06_file/dm04_config_app.c)
+#add_executable(file04 src/dm06_file/dm04_config.c src/dm06_file/dm04_config_app.c)
+
+#add_library(SocketClient SHARED src/dm07_os/dm02_socket_client.c src/dm07_os/dm02_socket_client.h)
+
+link_directories(${CBasic_SOURCE_DIR}/lib)
+add_executable(socket_client_test src/dm07_os/dm01_socket_os_test.c)
+target_link_libraries(socket_client_test SocketClient)
