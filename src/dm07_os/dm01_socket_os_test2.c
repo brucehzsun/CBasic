@@ -12,37 +12,41 @@ int main() {
     void *handler = NULL;
     int ret;
 
-    ret = cltSocketInit(&handler);
+    ret = cltSocketInit2(&handler);
     if (ret != 0) {
         printf("socket init failed\n");
         return -1;
     }
 
-    const char buf[] = {"abcdegf"};
+    char buf[] = {"abcdegf"};
     int len = strlen(buf);
 
-    ret = cltSocketSend(handler, buf, len);
+    ret = cltSocketSend2(handler, buf, len);
     if (ret != 0) {
         printf("socket send failed\n");
         return -2;
     }
 
-    char revBuf[128];
+    char *revBuf = NULL;
     int revLen = 0;
-    ret = cltSocketRev(handler, revBuf, &revLen);
+    ret = cltSocketRev2(handler, &revBuf, &revLen);
     if (ret != 0) {
         printf("socket receive failed\n");
         return -3;
     }
     printf("output message:%s\n", revBuf);
 
-    ret = cltSocketDestory(handler);
+    ret = cltSocketRev2Free(&revBuf);
     if (ret != 0) {
-        printf("socket destory failed\n");
+        printf("cltSocketRev2Free failed\n");
         return -4;
     }
 
-    handler = NULL;
+    ret = cltSocketDestory2(&handler);
+    if (ret != 0) {
+        printf("socket destory failed\n");
+        return -5;
+    }
 
     return 0;
 }

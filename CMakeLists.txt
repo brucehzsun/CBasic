@@ -48,6 +48,10 @@ set(LIBRARY_OUTPUT_PATH ${CBasic_SOURCE_DIR}/lib)
 
 #add_library(SocketClient SHARED src/dm07_os/dm02_socket_client.c src/dm07_os/dm02_socket_client.h)
 
+#link_directories(${CBasic_SOURCE_DIR}/lib)
+#add_executable(socket_client_test src/dm07_os/dm01_socket_os_test.c)
+#target_link_libraries(socket_client_test SocketClient)
+
 link_directories(${CBasic_SOURCE_DIR}/lib)
-add_executable(socket_client_test src/dm07_os/dm01_socket_os_test.c)
-target_link_libraries(socket_client_test SocketClient)
+add_executable(socket_client_test2 src/dm07_os/dm01_socket_os_test2.c)
+target_link_libraries(socket_client_test2 SocketClient)
